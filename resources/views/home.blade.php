@@ -45,6 +45,7 @@
     <!-- Main content -->
     <div class="content">
       <!-- ISI HALAMAN -->
+      tes
     </div>
 
     <!-- /.content -->
