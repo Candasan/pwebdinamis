@@ -43,9 +43,7 @@
 
 
     <!-- Main content -->
-    <div class="content">
-      <!-- ISI HALAMAN -->
-    </div>
+    @include('Blog.IsiTambahBlog')
 
     <!-- /.content -->
   </div>

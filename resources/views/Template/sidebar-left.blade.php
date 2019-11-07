@@ -48,7 +48,7 @@
           </li>
 
           <!-- menu blog -->
-          <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview ">
             <a href="#" class="nav-link active">
               <i class="nav-icon fab fa-blogger-b"></i>
               <p>
@@ -58,7 +58,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/tambah-blog')}}" class="nav-link">
+                <a href="{{url('/tambah-blog')}}" class="nav-link ">
                   <i class="fas fa-plus-square nav-icon"></i>
                   <p>Add Blog</p>
                 </a>

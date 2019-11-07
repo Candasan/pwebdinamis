@@ -44,6 +44,7 @@
 
     <!-- Main content -->
     <div class="content">
+      @include('Blog.IsiDataBlog')
       <!-- ISI HALAMAN -->
     </div>
 
