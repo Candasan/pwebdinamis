@@ -83,7 +83,7 @@ class BlogController extends Controller
         //
     }
 
-    public function tambahblog()        //menghapus data
+    public function tambahblog()        
     {  
         return view('Blog.TambahBlog');
     }

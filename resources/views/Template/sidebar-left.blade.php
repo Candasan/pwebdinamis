@@ -47,31 +47,6 @@
             </ul>
           </li>
 
-          <!-- menu blog -->
-          <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fab fa-blogger-b"></i>
-              <p>
-                Blog Pages
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{url('/tambah-blog')}}" class="nav-link ">
-                  <i class="fas fa-plus-square nav-icon"></i>
-                  <p>Add Blog</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('/data-blog')}}" class="nav-link">
-                  <i class="fas fa-address-card nav-icon"></i>
-                  <p>Blog Data</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -81,6 +56,43 @@
               </p>
             </a>
           </li>
+
+          <!-- menu blog -->
+          <li class="nav-item has-treeview menu-open">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon fab fa-blogger orange"></i>
+                <p>
+                  Blog Pages
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <router-link to="user" class="nav-link">
+                      <i class="fas fa-user nav-icon red"></i>
+                    <p>User</p>
+                  </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="category" class="nav-link">
+                      <i class="fas fa-list-alt nav-icon yellow"></i>
+                      <p>Category</p>
+                    </router-link>
+                  </li>
+                <li class="nav-item">
+                  <router-link to="tambah-blog" class="nav-link ">
+                    <i class="fas fa-folder-plus nav-icon teal"></i>
+                    <p>Add Blog</p>
+                  </router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link to="data-blog" class="nav-link">
+                    <i class="fas fa-database nav-icon cyan"></i>
+                    <p>Blog Data</p>
+                  </router-link>
+                </li>
+              </ul>
+            </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

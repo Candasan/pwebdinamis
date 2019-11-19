@@ -23,7 +23,7 @@
                 <thead>
                   <tr>
                     <th><center>Nama</center></th>
-                    <th colspan="3"><center>Aksi</center></th>
+                    <th style="width:40%"><center>Aksi</center></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -34,19 +34,19 @@
                     </td>
 
                     <td>
+                      <center>
                       <a href="{{$isinya}}">
-                        <i class="fas fa-eye"> Read </i>
+                        <i class="fas fa-eye pink"> Read </i> 
                       </a>
-                    </td>
-                    <td>
+                            &nbsp;&nbsp; | &nbsp;&nbsp;
                       <a href="{{$isinya}}">
-                        <i class="fas fa-edit"> Edit </i>
+                        <i class="fas fa-edit cyan"> Edit</i>
                       </a>
-                    </td>
-                    <td>
+                            &nbsp;&nbsp; | &nbsp;&nbsp;
                       <a href="{{$isinya}}">
-                        <i class="fas fa-trash"> Delete</i>
+                        <i class="fas fa-trash indigo"> Delete</i>
                       </a>
+                      </center>
                     </td>
                     <!--
                       <div class="btn-group btn-group-sm">
