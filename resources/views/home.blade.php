@@ -1,68 +1,23 @@
-<!DOCTYPE html>
+@extends('layouts.app')
 
-<html lang="en">
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
 
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
 
-<head>
-  <title>Wo i</title>
-  @include('Template.head')
-</head>
-
-
-<body class="hold-transition sidebar-mini">
-<div class="wrapper" id="app">
-
-  <!-- Navbar -->
-  @include('Template.navbar')
-  <!-- /.navbar -->
-
-
-  <!-- Main Sidebar Container -->
-  @include('Template.sidebar-left')
-
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark"></h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{('/')}}">Home</a></li>
-
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
+                    You are logged in!
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /.content-header -->
-
-
-    <!-- Main content -->
-    <div class="content">
-      <router-view></router-view>
-      <!-- ISI HALAMAN -->
-    </div>
-
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
-
-  <!-- Main Footer -->
-  @include('Template.footer')
 </div>
-<!-- ./wrapper -->
-
-
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-@include('Template.script')
-
-</body>
-</html>
+@endsection

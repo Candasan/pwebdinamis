@@ -14,7 +14,9 @@
           <img src="{{asset('img/user.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Monika Fitria Canda S</a>
+            <a class="nav-link" href="#" role="button" aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }} <span class="caret"></span>
+            </a>
         </div>
       </div>
 
@@ -47,16 +49,6 @@
             </ul>
           </li>
 
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Simple Link
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li>
-
           <!-- menu blog -->
           <li class="nav-item has-treeview menu-open">
               <a href="#" class="nav-link active">
@@ -85,14 +77,40 @@
                     <p>Add Blog</p>
                   </router-link>
                 </li>
+                
                 <li class="nav-item">
                   <router-link to="data-blog" class="nav-link">
                     <i class="fas fa-database nav-icon cyan"></i>
                     <p>Blog Data</p>
                   </router-link>
                 </li>
+                
               </ul>
             </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                    Simple Link
+                    <span class="right badge badge-danger">New</span>
+                  </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                  <a href="{{url('/masuk')}}" class="nav-link">
+                    <p>Login</p>
+                  </a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();">
+                   {{ __('Logout') }}
+                  </a>
+              </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
