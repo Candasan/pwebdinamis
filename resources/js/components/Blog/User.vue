@@ -6,10 +6,15 @@
                     <div class="card-header"><h3>User</h3></div>
 
                     <div class="card-body">
+                        <button type="button" class="btn btn-success float-right"><i class="fas fa-credit-card"></i> &nbsp; Tambah User </button>
+                        <br>
+                        <br>
+                        <br>
+
                         <table class="table table-bordered">
                             <tr>
                                 <th><center>Nama</center></th>
-                                <th style="width:40%"><center>Aksi</center></th>
+                                <th style="width:15%"><center>Aksi</center></th>
                             </tr>
                             <tr>
                                 <td>
@@ -18,16 +23,13 @@
 
                                 <td>
                                 <center>
+                                
                                 <a href="#">
-                                    <i class="fas fa-eye pink"> Read </i>
+                                    <i class="fas fa-edit cyan"> </i>
                                 </a>
                                 &nbsp;&nbsp; | &nbsp;&nbsp;
                                 <a href="#">
-                                    <i class="fas fa-edit cyan"> Edit </i>
-                                </a>
-                                &nbsp;&nbsp; | &nbsp;&nbsp;
-                                <a href="#">
-                                    <i class="fas fa-trash indigo"> Delete</i>
+                                    <i class="fas fa-trash indigo"> </i>
                                 </a>
                                 </center>
                                 </td>

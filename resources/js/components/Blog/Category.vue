@@ -6,28 +6,37 @@
                     <div class="card-header"><h3>Category</h3></div>
 
                     <div class="card-body">
+                        <button type="button" class="btn btn-success float-right"><i class="fas fa-credit-card"></i> &nbsp; Tambah Kategori </button>
+                        <br>
+                        <br>
+                        <br>
+        
                         <table class="table table-bordered">
+                            
                             <tr>
-                                <th><center>Nama</center></th>
-                                <th style="width:40%"><center>Aksi</center></th>
+                                <th><center>Kategori</center></th>
+                                <th style="width:25%"><center>Jumlah Berita</center></th>
+                                <th style="width:15%"><center>Aksi</center></th>
                             </tr>
+
                             <tr>
                                 <td>
-                                Fitria
+                                
+                                </td>
+
+                                <td>
+                                
                                 </td>
 
                                 <td>
                                 <center>
+                                
                                 <a href="#">
-                                    <i class="fas fa-eye pink"> Read </i>
+                                    <i class="fas fa-edit cyan"> </i>
                                 </a>
                                 &nbsp;&nbsp; | &nbsp;&nbsp;
                                 <a href="#">
-                                    <i class="fas fa-edit cyan"> Edit </i>
-                                </a>
-                                &nbsp;&nbsp; | &nbsp;&nbsp;
-                                <a href="#">
-                                    <i class="fas fa-trash indigo"> Delete</i>
+                                    <i class="fas fa-trash indigo"> </i>
                                 </a>
                                 </center>
                                 </td>

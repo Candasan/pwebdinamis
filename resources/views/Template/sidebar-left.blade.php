@@ -52,7 +52,7 @@
           <!-- menu blog -->
           <li class="nav-item has-treeview menu-open">
               <a href="#" class="nav-link active">
-                <i class="nav-icon fab fa-blogger orange"></i>
+                <i class="nav-icon fas fa-blog orange"></i>
                 <p>
                   Blog Pages
                   <i class="right fas fa-angle-left"></i>
@@ -99,16 +99,24 @@
               </li>
 
               <li class="nav-item">
-                  <a href="{{url('/masuk')}}" class="nav-link">
+                  <router-link to="masuk" class="nav-link">
+                    <i class="fas fa-sign-in-alt nav-icon"></i>
                     <p>Login</p>
-                  </a>
+                  </router-link>
               </li>
 
+
               <li class="nav-item">
-                  <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
-                  document.getElementById('logout-form').submit();">
-                   {{ __('Logout') }}
-                  </a>
+                
+                      <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+                          <i class="fas fa-sign-out-alt nav-icon"></i> {{ __('Logout') }} 
+                      </a>
+
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                          @csrf
+                      </form>
+                  
               </li>
 
         </ul>

@@ -12,11 +12,11 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 let routes = [
-    {path:'tambah-blog', component: require('components/Blog/TambahBlog.vue').default},
-    {path:'data-blog', component: require('components/Blog/TambahBlog.vue').default},
-    {path:'user', component: require('components/Blog/TambahBlog.vue').default},
-    {path:'category', component: require('components/Blog/TambahBlog.vue').default},
-    {path:'masuk', component: require('components/masuk.vue').default}
+    {path:'/tambah-blog', component: require('./components/Blog/TambahBlog.vue').default},
+    {path:'/data-blog', component: require('./components/Blog/DataBlog.vue').default},
+    {path:'/user', component: require('./components/Blog/User.vue').default},
+    {path:'/category', component: require('./components/Blog/Category.vue').default},
+    {path:'/masuk', component: require('./components/masuk.vue').default}
 ]
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
