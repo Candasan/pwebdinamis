@@ -23,6 +23,10 @@ Route::get('masuk', function () {
     return view('masuk');
 });
 
+Route::get('daftar', function () {
+    return view('daftar');
+});
+
 Route::get('/tambah-blog', 'BlogController@tambahblog');
 
 Route::get('/data-blog', 'BlogController@index');

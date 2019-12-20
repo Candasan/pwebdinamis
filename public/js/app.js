@@ -1906,6 +1906,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2178,6 +2209,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2224,6 +2304,117 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/daftar.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/daftar.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -41593,6 +41784,8 @@ var render = function() {
           _c("div", { staticClass: "card-body" }, [
             _vm._m(1),
             _vm._v(" "),
+            _vm._m(2),
+            _vm._v(" "),
             _c("br"),
             _vm._v(" "),
             _c("br"),
@@ -41676,10 +41869,117 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "button",
-      { staticClass: "btn btn-success float-right", attrs: { type: "button" } },
+      {
+        staticClass: "btn btn-success float-right",
+        attrs: {
+          type: "button",
+          "data-toggle": "modal",
+          "data-target": "#exampleModalCenter"
+        }
+      },
       [
         _c("i", { staticClass: "fas fa-folder-plus" }),
         _vm._v("   Tambah Kategori ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "exampleModalCenter",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalCenterTitle",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "exampleModalLongTitle" }
+                  },
+                  [_vm._v("Tambah Kategori")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "close",
+                    attrs: {
+                      type: "button",
+                      "data-dismiss": "modal",
+                      "aria-label": "Close"
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("×")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c(
+                  "form",
+                  { attrs: { action: "../../index3.html", method: "post" } },
+                  [
+                    _c("div", { staticClass: "input-group mb-3" }, [
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: { type: "text", placeholder: "Kategori ..." }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "input-group mb-3" }, [
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          placeholder: "Jumlah Berita ..."
+                        }
+                      })
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Close")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                  [_vm._v("Save changes")]
+                )
+              ])
+            ])
+          ]
+        )
       ]
     )
   }
@@ -41957,6 +42257,8 @@ var render = function() {
           _c("div", { staticClass: "card-body" }, [
             _vm._m(1),
             _vm._v(" "),
+            _vm._m(2),
+            _vm._v(" "),
             _c("br"),
             _vm._v(" "),
             _c("br"),
@@ -42037,10 +42339,139 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "button",
-      { staticClass: "btn btn-success float-right", attrs: { type: "button" } },
+      {
+        staticClass: "btn btn-success float-right",
+        attrs: {
+          type: "button",
+          "data-toggle": "modal",
+          "data-target": "#exampleModalCenter"
+        }
+      },
       [
         _c("i", { staticClass: "fas fa-folder-plus" }),
         _vm._v("   Tambah User ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "exampleModalCenter",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalCenterTitle",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "exampleModalLongTitle" }
+                  },
+                  [_vm._v("Tambah User")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "close",
+                    attrs: {
+                      type: "button",
+                      "data-dismiss": "modal",
+                      "aria-label": "Close"
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("×")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c(
+                  "form",
+                  { attrs: { action: "../../index3.html", method: "post" } },
+                  [
+                    _c("div", { staticClass: "input-group mb-3" }, [
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: { type: "text", placeholder: "Nama User ..." }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "input-group-append" }, [
+                        _c("div", { staticClass: "input-group-text" }, [
+                          _c("span", { staticClass: "fas fa-user" })
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "input-group mb-3" }, [
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: { type: "email", placeholder: "Email ..." }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "input-group-append" }, [
+                        _c("div", { staticClass: "input-group-text" }, [
+                          _c("span", { staticClass: "fas fa-envelope" })
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "input-group mb-3" }, [
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: { type: "password", placeholder: "Password ..." }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "input-group-append" }, [
+                        _c("div", { staticClass: "input-group-text" }, [
+                          _c("span", { staticClass: "fas fa-lock" })
+                        ])
+                      ])
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Close")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                  [_vm._v("Save changes")]
+                )
+              ])
+            ])
+          ]
+        )
       ]
     )
   }
@@ -42098,10 +42529,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/masuk.vue?vue&type=template&id=69790e7a&":
-/*!********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/masuk.vue?vue&type=template&id=69790e7a& ***!
-  \********************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/daftar.vue?vue&type=template&id=b36950f2&":
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/daftar.vue?vue&type=template&id=b36950f2& ***!
+  \*********************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -42133,17 +42564,28 @@ var staticRenderFns = [
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "card" }, [
-                  _c("div", { staticClass: "card-body login-card-body" }, [
+                  _c("div", { staticClass: "card-body register-card-body" }, [
                     _c("p", { staticClass: "login-box-msg" }, [
-                      _vm._v("Sign in to start your session")
+                      _vm._v("Register a new membership")
                     ]),
                     _vm._v(" "),
                     _c(
                       "form",
-                      {
-                        attrs: { action: "../../index3.html", method: "post" }
-                      },
+                      { attrs: { action: "../../index.html", method: "post" } },
                       [
+                        _c("div", { staticClass: "input-group mb-3" }, [
+                          _c("input", {
+                            staticClass: "form-control",
+                            attrs: { type: "text", placeholder: "Full name" }
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "input-group-append" }, [
+                            _c("div", { staticClass: "input-group-text" }, [
+                              _c("span", { staticClass: "fas fa-user" })
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
                         _c("div", { staticClass: "input-group mb-3" }, [
                           _c("input", {
                             staticClass: "form-control",
@@ -42170,17 +42612,39 @@ var staticRenderFns = [
                           ])
                         ]),
                         _vm._v(" "),
+                        _c("div", { staticClass: "input-group mb-3" }, [
+                          _c("input", {
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "password",
+                              placeholder: "Retype password"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "input-group-append" }, [
+                            _c("div", { staticClass: "input-group-text" }, [
+                              _c("span", { staticClass: "fas fa-lock" })
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
                           _c("div", { staticClass: "col-8" }, [
                             _c("div", { staticClass: "icheck-primary" }, [
                               _c("input", {
-                                attrs: { type: "checkbox", id: "remember" }
+                                attrs: {
+                                  type: "checkbox",
+                                  id: "agreeTerms",
+                                  name: "terms",
+                                  value: "agree"
+                                }
                               }),
                               _vm._v(" "),
-                              _c("label", { attrs: { for: "remember" } }, [
-                                _vm._v(
-                                  "\n                      Remember Me\n                    "
-                                )
+                              _c("label", { attrs: { for: "agreeTerms" } }, [
+                                _vm._v("\n                    I agree to the "),
+                                _c("a", { attrs: { href: "#" } }, [
+                                  _vm._v("terms")
+                                ])
                               ])
                             ])
                           ]),
@@ -42192,7 +42656,7 @@ var staticRenderFns = [
                                 staticClass: "btn btn-primary btn-block",
                                 attrs: { type: "submit" }
                               },
-                              [_vm._v("Sign In")]
+                              [_vm._v("Register")]
                             )
                           ])
                         ])
@@ -42201,7 +42665,7 @@ var staticRenderFns = [
                     _vm._v(" "),
                     _c(
                       "div",
-                      { staticClass: "social-auth-links text-center mb-3" },
+                      { staticClass: "social-auth-links text-center" },
                       [
                         _c("p", [_vm._v("- OR -")]),
                         _vm._v(" "),
@@ -42213,7 +42677,9 @@ var staticRenderFns = [
                           },
                           [
                             _c("i", { staticClass: "fab fa-facebook mr-2" }),
-                            _vm._v(" Sign in using Facebook\n              ")
+                            _vm._v(
+                              "\n                Sign up using Facebook\n                "
+                            )
                           ]
                         ),
                         _vm._v(" "),
@@ -42225,31 +42691,199 @@ var staticRenderFns = [
                           },
                           [
                             _c("i", { staticClass: "fab fa-google-plus mr-2" }),
-                            _vm._v(" Sign in using Google+\n              ")
+                            _vm._v(
+                              "\n                Sign up using Google+\n                "
+                            )
                           ]
                         )
                       ]
                     ),
                     _vm._v(" "),
-                    _c("p", { staticClass: "mb-1" }, [
-                      _c("a", { attrs: { href: "forgot-password.html" } }, [
-                        _vm._v("I forgot my password")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "mb-0" }, [
-                      _c(
-                        "a",
-                        { staticClass: "text-center", attrs: { href: "#" } },
-                        [_vm._v("Register a new membership")]
-                      )
-                    ])
+                    _c(
+                      "a",
+                      {
+                        staticClass: "text-center",
+                        attrs: { href: "login.html" }
+                      },
+                      [_vm._v("I already have a membership")]
+                    )
                   ])
                 ])
               ])
             ])
           ])
         ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/masuk.vue?vue&type=template&id=69790e7a&":
+/*!********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/masuk.vue?vue&type=template&id=69790e7a& ***!
+  \********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-8" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "content" }, [
+            _c("div", { staticClass: "login-box" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "card-body login-card-body" }, [
+                  _c("p", { staticClass: "login-box-msg" }, [
+                    _vm._v("Sign in to start your session")
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    { staticClass: "mb-0" },
+                    [
+                      _c(
+                        "router-link",
+                        { staticClass: "text-center", attrs: { to: "daftar" } },
+                        [_vm._v("Register a new membership")]
+                      )
+                    ],
+                    1
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "login-logo" }, [
+      _c("a", { attrs: { href: "../../index2.html" } }, [
+        _c("b", [_vm._v("Login")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "form",
+      { attrs: { action: "../../index3.html", method: "post" } },
+      [
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "email", placeholder: "Email" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "input-group-append" }, [
+            _c("div", { staticClass: "input-group-text" }, [
+              _c("span", { staticClass: "fas fa-envelope" })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "password", placeholder: "Password" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "input-group-append" }, [
+            _c("div", { staticClass: "input-group-text" }, [
+              _c("span", { staticClass: "fas fa-lock" })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-8" }, [
+            _c("div", { staticClass: "icheck-primary" }, [
+              _c("input", { attrs: { type: "checkbox", id: "remember" } }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "remember" } }, [
+                _vm._v(
+                  "\n                      Remember Me\n                    "
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-4" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary btn-block",
+                attrs: { type: "submit" }
+              },
+              [_vm._v("Sign In")]
+            )
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "social-auth-links text-center mb-3" }, [
+      _c("p", [_vm._v("- OR -")]),
+      _vm._v(" "),
+      _c(
+        "a",
+        { staticClass: "btn btn-block btn-primary", attrs: { href: "#" } },
+        [
+          _c("i", { staticClass: "fab fa-facebook mr-2" }),
+          _vm._v(" Sign in using Facebook\n              ")
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "a",
+        { staticClass: "btn btn-block btn-danger", attrs: { href: "#" } },
+        [
+          _c("i", { staticClass: "fab fa-google-plus mr-2" }),
+          _vm._v(" Sign in using Google+\n              ")
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "mb-1" }, [
+      _c("a", { attrs: { href: "forgot-password.html" } }, [
+        _vm._v("I forgot my password")
       ])
     ])
   }
@@ -57367,6 +58001,9 @@ var routes = [{
 }, {
   path: '/masuk',
   component: __webpack_require__(/*! ./components/masuk.vue */ "./resources/js/components/masuk.vue")["default"]
+}, {
+  path: '/daftar',
+  component: __webpack_require__(/*! ./components/daftar.vue */ "./resources/js/components/daftar.vue")["default"]
 }];
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
@@ -57767,6 +58404,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/daftar.vue":
+/*!********************************************!*\
+  !*** ./resources/js/components/daftar.vue ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _daftar_vue_vue_type_template_id_b36950f2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./daftar.vue?vue&type=template&id=b36950f2& */ "./resources/js/components/daftar.vue?vue&type=template&id=b36950f2&");
+/* harmony import */ var _daftar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./daftar.vue?vue&type=script&lang=js& */ "./resources/js/components/daftar.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _daftar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _daftar_vue_vue_type_template_id_b36950f2___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _daftar_vue_vue_type_template_id_b36950f2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/daftar.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/daftar.vue?vue&type=script&lang=js&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/daftar.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_daftar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./daftar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/daftar.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_daftar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/daftar.vue?vue&type=template&id=b36950f2&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/daftar.vue?vue&type=template&id=b36950f2& ***!
+  \***************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_daftar_vue_vue_type_template_id_b36950f2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./daftar.vue?vue&type=template&id=b36950f2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/daftar.vue?vue&type=template&id=b36950f2&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_daftar_vue_vue_type_template_id_b36950f2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_daftar_vue_vue_type_template_id_b36950f2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

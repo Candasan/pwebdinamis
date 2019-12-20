@@ -48,7 +48,8 @@ let routes = [
     {path:'/data-blog', component: require('./components/Blog/DataBlog.vue').default},
     {path:'/user', component: require('./components/Blog/User.vue').default},
     {path:'/category', component: require('./components/Blog/Category.vue').default},
-    {path:'/masuk', component: require('./components/masuk.vue').default}
+    {path:'/masuk', component: require('./components/masuk.vue').default},
+    {path:'/daftar', component: require('./components/daftar.vue').default}
 ]
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);

@@ -64,7 +64,7 @@
                   <a href="forgot-password.html">I forgot my password</a>
                 </p>
                 <p class="mb-0">
-                  <a href="#" class="text-center">Register a new membership</a>
+                  <router-link to="daftar" class="text-center">Register a new membership</router-link>
                 </p>
               </div>
               <!-- /.login-card-body -->
