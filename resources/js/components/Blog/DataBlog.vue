@@ -8,12 +8,37 @@
                     <div class="card-body">
                         <table class="table table-bordered">
                             <tr>
-                                <th><center>Nama</center></th>
-                                <th style="width:40%"><center>Aksi</center></th>
+                                <th><center>Id</center></th>
+                                <th><center>Kategori Id</center></th>
+                                <th><center>User Id</center></th>
+                                <th><center>Judul</center></th>
+                                <th><center>Isi</center></th>
+                                <th><center>Jumlah Baca</center></th>
+                                <th style="width:30%"><center>Aksi</center></th>
                             </tr>
-                            <tr>
+                            <tr v-for="items in blogs" :key="items.id">
                                 <td>
-                                Santika
+                                    <center> {{items.id}} </center>
+                                </td>
+
+                                <td>
+                                    <center> {{items.kategori_id}} </center>
+                                </td>
+
+                                <td>
+                                    <center> {{items.user_id}} </center>
+                                </td>
+
+                                <td>
+                                    <center> {{items.judul}} </center>
+                                </td>
+
+                                <td>
+                                   <center>  {{items.isi}} </center>
+                                </td>
+
+                                <td>
+                                    <center> {{items.jbaca}} </center>
                                 </td>
 
                                 <td>
@@ -42,8 +67,31 @@
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
+        data() {
+            return {
+                editmode: false,
+                blogs: {},
+                form: new Form({            //menyimpan data yang diinputkan
+                    id: "",
+                    kategori_id: "",
+                    user_id: "",
+                    judul: "",
+                    isi: "",
+                    jbaca: ""
+                })
+            };
+        },
+
+        methods: {                          //method untuk 
+            loadData() {
+                axios.get("api/blog").then(({data}) => (this.blogs = data));
+            }
+        },
+            created() {                     //untuk menampilkan / memanggil data di method atas
+                this.loadData();
+                Fire.$on("refreshData", () => {
+                    this.loadData();
+                });
+            }
+    };
 </script>

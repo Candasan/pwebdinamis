@@ -6,7 +6,7 @@
                     <div class="card-header"><h3>Category</h3></div>
 
                     <div class="card-body">
-                        <button type="button" class="btn btn-success float-right"><i class="fas fa-credit-card"></i> &nbsp; Tambah Kategori </button>
+                        <button type="button" class="btn btn-success float-right"><i class="fas fa-folder-plus"></i> &nbsp; Tambah Kategori </button>
                         <br>
                         <br>
                         <br>
@@ -19,9 +19,9 @@
                                 <th style="width:15%"><center>Aksi</center></th>
                             </tr>
 
-                            <tr>
-                                <td>
-                                
+                            <tr v-for="items in kategoris" :key="items.id">
+                                <td> 
+                                    {{items.namakategori}}
                                 </td>
 
                                 <td>
@@ -51,8 +51,28 @@
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
+        data() {
+            return {
+                editmode: false,
+                kategoris: {},
+                form: new Form({            //menyimpan data yang diinputkan
+                    id: "",
+                    namakategori: "",
+                    jumlah: ""
+                })
+            };
+        },
+
+        methods: {                          //method untuk 
+            loadData() {
+                axios.get("api/kategori").then(({data}) => (this.kategoris = data));
+            }
+        },
+            created() {                     //untuk menampilkan / memanggil data di method atas
+                this.loadData();
+                Fire.$on("refreshData", () => {
+                    this.loadData();
+                });
+            }
+    };
 </script>
