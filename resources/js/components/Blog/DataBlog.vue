@@ -6,20 +6,26 @@
                     <div class="card-header"><h3>Blog Data</h3></div>
 
                     <div class="card-body">
+                        <button type="button" class="btn btn-success float-right" @click="modalBaru">
+                            <i class="fas fa-folder-plus"></i> &nbsp; Tambah Blog</button>
+
+                        <br>
+                        <br>
+                        <br>
+                            
+
                         <table class="table table-bordered">
                             <tr>
-                                <th><center>Id</center></th>
+                                
                                 <th><center>Kategori Id</center></th>
                                 <th><center>User Id</center></th>
                                 <th><center>Judul</center></th>
                                 <th><center>Isi</center></th>
                                 <th><center>Jumlah Baca</center></th>
-                                <th style="width:30%"><center>Aksi</center></th>
+                                <th style="width:15%"><center>Aksi</center></th>
                             </tr>
                             <tr v-for="items in blogs" :key="items.id">
-                                <td>
-                                    <center> {{items.id}} </center>
-                                </td>
+                                
 
                                 <td>
                                     <center> {{items.kategori_id}} </center>
@@ -44,15 +50,11 @@
                                 <td>
                                 <center>
                                 <a href="#">
-                                    <i class="fas fa-eye pink"> Read </i>
+                                    <i class="fas fa-edit cyan"> </i>
                                 </a>
                                 &nbsp;&nbsp; | &nbsp;&nbsp;
                                 <a href="#">
-                                    <i class="fas fa-edit cyan"> Edit </i>
-                                </a>
-                                &nbsp;&nbsp; | &nbsp;&nbsp;
-                                <a href="#">
-                                    <i class="fas fa-trash indigo"> Delete</i>
+                                    <i class="fas fa-trash red"> </i>
                                 </a>
                                 </center>
                                 </td>
@@ -62,6 +64,54 @@
                 </div>
             </div>
         </div>
+
+
+         <!-- Modal -->
+                        <div class="modal fade"
+                        id="tambah"
+                        tabindex="-1"
+                        role="dialog"
+                        aria-labelledby="tambahLabel"
+                        aria-hidden="true"
+                        >
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="tambahLabel" v-show="!editmode">Tambah Data Baru</h5>
+                                <h5 class="modal-title" id="tambahLabel" v-show="editmode">Rubah Data Kategori</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form @submit.prevent="editmode ? updateData() : createData()">
+                                <div class="modal-body">
+                                <div class="form-group">
+                                    <input
+                                    v-model="form.kategori_id"
+                                    type="text"
+                                    name="kategori_id"
+                                    placeholder="Kategori Id"
+                                    class="form-control"
+                                    :class="{ 'is-invalid': form.errors.has('kategori_id') }"
+                                    />
+                                    <has-error :form="form" field="kategori_id"></has-error>
+
+                                    
+                                </div>
+
+                                </div>
+
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Keluar</button>
+                                <button v-show="!editmode" type="submit" class="btn btn-primary">Tambah</button>
+                                <button v-show="editmode" type="submit" class="btn btn-primary">Rubah</button>
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+                        </div>
+                        <!--/Modal-->
+
     </div>
 </template>
 
@@ -83,8 +133,28 @@
         },
 
         methods: {                          //method untuk 
+            modalBaru() {
+                this.editmode = false;
+                this.form.reset();
+                $("#tambah").modal("show");
+            },
             loadData() {
                 axios.get("api/blog").then(({data}) => (this.blogs = data));
+            },
+            createData() {
+            this.form
+                .post("api/blog")
+                .then(() => {
+                this.$Progress.start();
+                Fire.$emit("refreshData");      //refresh database kedalam tabel
+                $("#tambah").modal("hide");
+                Toast.fire({                    //notifikasi 
+                    type: "success",
+                    title: "Data Berhasi Tersimpan"
+                });
+                this.$Progress.finish();
+                })
+                .catch();
             }
         },
             created() {                     //untuk menampilkan / memanggil data di method atas

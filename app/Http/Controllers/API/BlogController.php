@@ -26,7 +26,14 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'kategori_id'  => 'required|integer',
+        ]);
+
+        return Blog::create([
+            'id' => $request['id'],
+            'kategori_id' => $request['kategori_id'],
+        ]);
     }
 
     /**

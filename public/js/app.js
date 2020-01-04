@@ -1937,6 +1937,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1952,6 +1966,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     //method untuk 
+    modalBaru: function modalBaru() {
+      this.editmode = false;
+      this.form.reset();
+      $("#tambah").modal("show");
+    },
     loadData: function loadData() {
       var _this = this;
 
@@ -1959,15 +1978,33 @@ __webpack_require__.r(__webpack_exports__);
         var data = _ref.data;
         return _this.kategoris = data;
       });
+    },
+    createData: function createData() {
+      var _this2 = this;
+
+      this.form.post("api/kategori").then(function () {
+        _this2.$Progress.start();
+
+        Fire.$emit("refreshData"); //refresh database kedalam tabel
+
+        $("#tambah").modal("hide");
+        Toast.fire({
+          //notifikasi 
+          type: "success",
+          title: "Data Berhasi Tersimpan"
+        });
+
+        _this2.$Progress.finish();
+      })["catch"]();
     }
   },
   created: function created() {
-    var _this2 = this;
+    var _this3 = this;
 
     //untuk menampilkan / memanggil data di method atas
     this.loadData();
     Fire.$on("refreshData", function () {
-      _this2.loadData();
+      _this3.loadData();
     });
   }
 });
@@ -1983,6 +2020,56 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2068,6 +2155,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     //method untuk 
+    modalBaru: function modalBaru() {
+      this.editmode = false;
+      this.form.reset();
+      $("#tambah").modal("show");
+    },
     loadData: function loadData() {
       var _this = this;
 
@@ -2075,15 +2167,33 @@ __webpack_require__.r(__webpack_exports__);
         var data = _ref.data;
         return _this.blogs = data;
       });
+    },
+    createData: function createData() {
+      var _this2 = this;
+
+      this.form.post("api/blog").then(function () {
+        _this2.$Progress.start();
+
+        Fire.$emit("refreshData"); //refresh database kedalam tabel
+
+        $("#tambah").modal("hide");
+        Toast.fire({
+          //notifikasi 
+          type: "success",
+          title: "Data Berhasi Tersimpan"
+        });
+
+        _this2.$Progress.finish();
+      })["catch"]();
     }
   },
   created: function created() {
-    var _this2 = this;
+    var _this3 = this;
 
     //untuk menampilkan / memanggil data di method atas
     this.loadData();
     Fire.$on("refreshData", function () {
-      _this2.loadData();
+      _this3.loadData();
     });
   }
 });
@@ -41782,9 +41892,18 @@ var render = function() {
           _vm._m(0),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
-            _vm._m(1),
-            _vm._v(" "),
-            _vm._m(2),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-success float-right",
+                attrs: { type: "button" },
+                on: { click: _vm.modalBaru }
+              },
+              [
+                _c("i", { staticClass: "fas fa-folder-plus" }),
+                _vm._v("   Tambah Kategori")
+              ]
+            ),
             _vm._v(" "),
             _c("br"),
             _vm._v(" "),
@@ -41851,7 +41970,175 @@ var render = function() {
           ])
         ])
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "tambah",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "tambahLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: !_vm.editmode,
+                        expression: "!editmode"
+                      }
+                    ],
+                    staticClass: "modal-title",
+                    attrs: { id: "tambahLabel" }
+                  },
+                  [_vm._v("Tambah Data Baru")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "h5",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.editmode,
+                        expression: "editmode"
+                      }
+                    ],
+                    staticClass: "modal-title",
+                    attrs: { id: "tambahLabel" }
+                  },
+                  [_vm._v("Rubah Data Kategori")]
+                ),
+                _vm._v(" "),
+                _vm._m(1)
+              ]),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      _vm.editmode ? _vm.updateData() : _vm.createData()
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.namakategori,
+                              expression: "form.namakategori"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("namakategori")
+                          },
+                          attrs: {
+                            type: "text",
+                            name: "namakategori",
+                            placeholder: "Nama Kategori"
+                          },
+                          domProps: { value: _vm.form.namakategori },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "namakategori",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "namakategori" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-footer" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        attrs: { type: "button", "data-dismiss": "modal" }
+                      },
+                      [_vm._v("Keluar")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: !_vm.editmode,
+                            expression: "!editmode"
+                          }
+                        ],
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "submit" }
+                      },
+                      [_vm._v("Tambah")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.editmode,
+                            expression: "editmode"
+                          }
+                        ],
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "submit" }
+                      },
+                      [_vm._v("Rubah")]
+                    )
+                  ])
+                ]
+              )
+            ])
+          ]
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -41870,117 +42157,14 @@ var staticRenderFns = [
     return _c(
       "button",
       {
-        staticClass: "btn btn-success float-right",
+        staticClass: "close",
         attrs: {
           type: "button",
-          "data-toggle": "modal",
-          "data-target": "#exampleModalCenter"
+          "data-dismiss": "modal",
+          "aria-label": "Close"
         }
       },
-      [
-        _c("i", { staticClass: "fas fa-folder-plus" }),
-        _vm._v("   Tambah Kategori ")
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "exampleModalCenter",
-          tabindex: "-1",
-          role: "dialog",
-          "aria-labelledby": "exampleModalCenterTitle",
-          "aria-hidden": "true"
-        }
-      },
-      [
-        _c(
-          "div",
-          {
-            staticClass: "modal-dialog modal-dialog-centered",
-            attrs: { role: "document" }
-          },
-          [
-            _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
-                _c(
-                  "h5",
-                  {
-                    staticClass: "modal-title",
-                    attrs: { id: "exampleModalLongTitle" }
-                  },
-                  [_vm._v("Tambah Kategori")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "close",
-                    attrs: {
-                      type: "button",
-                      "data-dismiss": "modal",
-                      "aria-label": "Close"
-                    }
-                  },
-                  [
-                    _c("span", { attrs: { "aria-hidden": "true" } }, [
-                      _vm._v("×")
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-body" }, [
-                _c(
-                  "form",
-                  { attrs: { action: "../../index3.html", method: "post" } },
-                  [
-                    _c("div", { staticClass: "input-group mb-3" }, [
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "text", placeholder: "Kategori ..." }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "input-group mb-3" }, [
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          placeholder: "Jumlah Berita ..."
-                        }
-                      })
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-footer" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-secondary",
-                    attrs: { type: "button", "data-dismiss": "modal" }
-                  },
-                  [_vm._v("Close")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
-                  [_vm._v("Save changes")]
-                )
-              ])
-            ])
-          ]
-        )
-      ]
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
     )
   }
 ]
@@ -42013,12 +42197,29 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
             _c(
+              "button",
+              {
+                staticClass: "btn btn-success float-right",
+                attrs: { type: "button" },
+                on: { click: _vm.modalBaru }
+              },
+              [
+                _c("i", { staticClass: "fas fa-folder-plus" }),
+                _vm._v("   Tambah Blog")
+              ]
+            ),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c(
               "table",
               { staticClass: "table table-bordered" },
               [
                 _c("tr", [
-                  _c("th", [_c("center", [_vm._v("Id")])], 1),
-                  _vm._v(" "),
                   _c("th", [_c("center", [_vm._v("Kategori Id")])], 1),
                   _vm._v(" "),
                   _c("th", [_c("center", [_vm._v("User Id")])], 1),
@@ -42031,7 +42232,7 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "th",
-                    { staticStyle: { width: "30%" } },
+                    { staticStyle: { width: "15%" } },
                     [_c("center", [_vm._v("Aksi")])],
                     1
                   )
@@ -42039,12 +42240,6 @@ var render = function() {
                 _vm._v(" "),
                 _vm._l(_vm.blogs, function(items) {
                   return _c("tr", { key: items.id }, [
-                    _c(
-                      "td",
-                      [_c("center", [_vm._v(" " + _vm._s(items.id) + " ")])],
-                      1
-                    ),
-                    _vm._v(" "),
                     _c(
                       "td",
                       [
@@ -42088,25 +42283,13 @@ var render = function() {
                       [
                         _c("center", [
                           _c("a", { attrs: { href: "#" } }, [
-                            _c("i", { staticClass: "fas fa-eye pink" }, [
-                              _vm._v(" Read ")
-                            ])
+                            _c("i", { staticClass: "fas fa-edit cyan" })
                           ]),
                           _vm._v(
                             "\n                               |   \n                            "
                           ),
                           _c("a", { attrs: { href: "#" } }, [
-                            _c("i", { staticClass: "fas fa-edit cyan" }, [
-                              _vm._v(" Edit ")
-                            ])
-                          ]),
-                          _vm._v(
-                            "\n                               |   \n                            "
-                          ),
-                          _c("a", { attrs: { href: "#" } }, [
-                            _c("i", { staticClass: "fas fa-trash indigo" }, [
-                              _vm._v(" Delete")
-                            ])
+                            _c("i", { staticClass: "fas fa-trash red" })
                           ])
                         ])
                       ],
@@ -42120,7 +42303,175 @@ var render = function() {
           ])
         ])
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "tambah",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "tambahLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: !_vm.editmode,
+                        expression: "!editmode"
+                      }
+                    ],
+                    staticClass: "modal-title",
+                    attrs: { id: "tambahLabel" }
+                  },
+                  [_vm._v("Tambah Data Baru")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "h5",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.editmode,
+                        expression: "editmode"
+                      }
+                    ],
+                    staticClass: "modal-title",
+                    attrs: { id: "tambahLabel" }
+                  },
+                  [_vm._v("Rubah Data Kategori")]
+                ),
+                _vm._v(" "),
+                _vm._m(1)
+              ]),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      _vm.editmode ? _vm.updateData() : _vm.createData()
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.kategori_id,
+                              expression: "form.kategori_id"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("kategori_id")
+                          },
+                          attrs: {
+                            type: "text",
+                            name: "kategori_id",
+                            placeholder: "Kategori Id"
+                          },
+                          domProps: { value: _vm.form.kategori_id },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "kategori_id",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "kategori_id" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-footer" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        attrs: { type: "button", "data-dismiss": "modal" }
+                      },
+                      [_vm._v("Keluar")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: !_vm.editmode,
+                            expression: "!editmode"
+                          }
+                        ],
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "submit" }
+                      },
+                      [_vm._v("Tambah")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.editmode,
+                            expression: "editmode"
+                          }
+                        ],
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "submit" }
+                      },
+                      [_vm._v("Rubah")]
+                    )
+                  ])
+                ]
+              )
+            ])
+          ]
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -42131,6 +42482,23 @@ var staticRenderFns = [
     return _c("div", { staticClass: "card-header" }, [
       _c("h3", [_vm._v("Blog Data")])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
   }
 ]
 render._withStripped = true
@@ -42544,176 +42912,173 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-8" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "content" }, [
+            _c("div", { staticClass: "login-box" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "card" }, [
+                _c(
+                  "div",
+                  { staticClass: "card-body register-card-body" },
+                  [
+                    _c("p", { staticClass: "login-box-msg" }, [
+                      _vm._v("Register a new membership")
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      { staticClass: "text-center", attrs: { to: "masuk" } },
+                      [_vm._v("I already have a membership")]
+                    )
+                  ],
+                  1
+                )
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "content" }, [
-              _c("div", { staticClass: "login-box" }, [
-                _c("div", { staticClass: "login-logo" }, [
-                  _c("a", { attrs: { href: "../../index2.html" } }, [
-                    _c("b", [_vm._v("Login")])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card" }, [
-                  _c("div", { staticClass: "card-body register-card-body" }, [
-                    _c("p", { staticClass: "login-box-msg" }, [
-                      _vm._v("Register a new membership")
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "form",
-                      { attrs: { action: "../../index.html", method: "post" } },
-                      [
-                        _c("div", { staticClass: "input-group mb-3" }, [
-                          _c("input", {
-                            staticClass: "form-control",
-                            attrs: { type: "text", placeholder: "Full name" }
-                          }),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "input-group-append" }, [
-                            _c("div", { staticClass: "input-group-text" }, [
-                              _c("span", { staticClass: "fas fa-user" })
-                            ])
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "input-group mb-3" }, [
-                          _c("input", {
-                            staticClass: "form-control",
-                            attrs: { type: "email", placeholder: "Email" }
-                          }),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "input-group-append" }, [
-                            _c("div", { staticClass: "input-group-text" }, [
-                              _c("span", { staticClass: "fas fa-envelope" })
-                            ])
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "input-group mb-3" }, [
-                          _c("input", {
-                            staticClass: "form-control",
-                            attrs: { type: "password", placeholder: "Password" }
-                          }),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "input-group-append" }, [
-                            _c("div", { staticClass: "input-group-text" }, [
-                              _c("span", { staticClass: "fas fa-lock" })
-                            ])
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "input-group mb-3" }, [
-                          _c("input", {
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "password",
-                              placeholder: "Retype password"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "input-group-append" }, [
-                            _c("div", { staticClass: "input-group-text" }, [
-                              _c("span", { staticClass: "fas fa-lock" })
-                            ])
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "col-8" }, [
-                            _c("div", { staticClass: "icheck-primary" }, [
-                              _c("input", {
-                                attrs: {
-                                  type: "checkbox",
-                                  id: "agreeTerms",
-                                  name: "terms",
-                                  value: "agree"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("label", { attrs: { for: "agreeTerms" } }, [
-                                _vm._v("\n                    I agree to the "),
-                                _c("a", { attrs: { href: "#" } }, [
-                                  _vm._v("terms")
-                                ])
-                              ])
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-4" }, [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-primary btn-block",
-                                attrs: { type: "submit" }
-                              },
-                              [_vm._v("Register")]
-                            )
-                          ])
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "social-auth-links text-center" },
-                      [
-                        _c("p", [_vm._v("- OR -")]),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-block btn-primary",
-                            attrs: { href: "#" }
-                          },
-                          [
-                            _c("i", { staticClass: "fab fa-facebook mr-2" }),
-                            _vm._v(
-                              "\n                Sign up using Facebook\n                "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-block btn-danger",
-                            attrs: { href: "#" }
-                          },
-                          [
-                            _c("i", { staticClass: "fab fa-google-plus mr-2" }),
-                            _vm._v(
-                              "\n                Sign up using Google+\n                "
-                            )
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "text-center",
-                        attrs: { href: "login.html" }
-                      },
-                      [_vm._v("I already have a membership")]
-                    )
-                  ])
-                ])
-              ])
+    return _c("div", { staticClass: "login-logo" }, [
+      _c("b", [_vm._v("Register")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "form",
+      { attrs: { action: "../../index.html", method: "post" } },
+      [
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "Full name" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "input-group-append" }, [
+            _c("div", { staticClass: "input-group-text" }, [
+              _c("span", { staticClass: "fas fa-user" })
             ])
           ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "email", placeholder: "Email" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "input-group-append" }, [
+            _c("div", { staticClass: "input-group-text" }, [
+              _c("span", { staticClass: "fas fa-envelope" })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "password", placeholder: "Password" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "input-group-append" }, [
+            _c("div", { staticClass: "input-group-text" }, [
+              _c("span", { staticClass: "fas fa-lock" })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { type: "password", placeholder: "Retype password" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "input-group-append" }, [
+            _c("div", { staticClass: "input-group-text" }, [
+              _c("span", { staticClass: "fas fa-lock" })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-8" }, [
+            _c("div", { staticClass: "icheck-primary" }, [
+              _c("input", {
+                attrs: {
+                  type: "checkbox",
+                  id: "agreeTerms",
+                  name: "terms",
+                  value: "agree"
+                }
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "agreeTerms" } }, [
+                _vm._v("\n                                I agree to the "),
+                _c("a", { attrs: { href: "#" } }, [_vm._v("terms")])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-4" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary btn-block",
+                attrs: { type: "submit" }
+              },
+              [_vm._v("Register")]
+            )
+          ])
         ])
-      ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "social-auth-links text-center" }, [
+      _c("p", [_vm._v("- OR -")]),
+      _vm._v(" "),
+      _c(
+        "a",
+        { staticClass: "btn btn-block btn-primary", attrs: { href: "#" } },
+        [
+          _c("i", { staticClass: "fab fa-facebook mr-2" }),
+          _vm._v(
+            "\n                            Sign up using Facebook\n                            "
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "a",
+        { staticClass: "btn btn-block btn-danger", attrs: { href: "#" } },
+        [
+          _c("i", { staticClass: "fab fa-google-plus mr-2" }),
+          _vm._v(
+            "\n                            Sign up using Google+\n                            "
+          )
+        ]
+      )
     ])
   }
 ]
@@ -42785,9 +43150,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "login-logo" }, [
-      _c("a", { attrs: { href: "../../index2.html" } }, [
-        _c("b", [_vm._v("Login")])
-      ])
+      _c("b", [_vm._v("Login")])
     ])
   },
   function() {
@@ -42831,7 +43194,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("label", { attrs: { for: "remember" } }, [
                 _vm._v(
-                  "\n                      Remember Me\n                    "
+                  "\n                                  Remember Me\n                                "
                 )
               ])
             ])
@@ -42863,7 +43226,7 @@ var staticRenderFns = [
         { staticClass: "btn btn-block btn-primary", attrs: { href: "#" } },
         [
           _c("i", { staticClass: "fab fa-facebook mr-2" }),
-          _vm._v(" Sign in using Facebook\n              ")
+          _vm._v(" Sign in using Facebook\n                          ")
         ]
       ),
       _vm._v(" "),
@@ -42872,7 +43235,7 @@ var staticRenderFns = [
         { staticClass: "btn btn-block btn-danger", attrs: { href: "#" } },
         [
           _c("i", { staticClass: "fab fa-google-plus mr-2" }),
-          _vm._v(" Sign in using Google+\n              ")
+          _vm._v(" Sign in using Google+\n                          ")
         ]
       )
     ])
