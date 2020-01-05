@@ -28,11 +28,19 @@ class BlogController extends Controller
     {
         $this->validate($request, [
             'kategori_id'  => 'required|integer',
+            'user_id' => 'required|integer',
+            'judul' => 'required|string|max:30',
+            'isi' => 'required|string|max:50',
+            'jbaca' => 'required|integer',
         ]);
 
         return Blog::create([
             'id' => $request['id'],
             'kategori_id' => $request['kategori_id'],
+            'user_id' => $request['user_id'],
+            'judul' => $request['judul'],
+            'isi' => $request['isi'],
+            'jbaca' => $request['jbaca'],
         ]);
     }
 

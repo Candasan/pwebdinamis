@@ -95,10 +95,56 @@
                                     :class="{ 'is-invalid': form.errors.has('kategori_id') }"
                                     />
                                     <has-error :form="form" field="kategori_id"></has-error>
-
-                                    
                                 </div>
 
+                                <div class="form-group">
+                                    <input
+                                    v-model="form.user_id"
+                                    type="text"
+                                    name="user_id"
+                                    placeholder="User Id"
+                                    class="form-control"
+                                    :class="{ 'is-invalid': form.errors.has('user_id') }"
+                                    />
+                                    <has-error :form="form" field="user_id"></has-error>
+                                </div>
+
+                                <div class="form-group">
+                                    <input
+                                    v-model="form.judul"
+                                    type="text"
+                                    name="judul"
+                                    placeholder="Judul"
+                                    class="form-control"
+                                    :class="{ 'is-invalid': form.errors.has('judul') }"
+                                    />
+                                    <has-error :form="form" field="judul"></has-error>
+                                </div>
+
+                                <div class="form-group">
+                                    <input
+                                    v-model="form.isi"
+                                    type="text"
+                                    name="isi"
+                                    placeholder="Isi"
+                                    class="form-control"
+                                    :class="{ 'is-invalid': form.errors.has('isi') }"
+                                    />
+                                    <has-error :form="form" field="isi"></has-error>
+                                </div>
+
+                                <div class="form-group">
+                                    <input
+                                    v-model="form.jbaca"
+                                    type="text"
+                                    name="jbaca"
+                                    placeholder="Jumlah Baca"
+                                    class="form-control"
+                                    :class="{ 'is-invalid': form.errors.has('jbaca') }"
+                                    />
+                                    <has-error :form="form" field="jbaca"></has-error>
+                                </div>
+                                
                                 </div>
 
                                 <div class="modal-footer">

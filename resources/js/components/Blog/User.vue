@@ -6,55 +6,8 @@
                     <div class="card-header"><h3>User</h3></div>
 
                     <div class="card-body">
-                        <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#exampleModalCenter">
-                        <!-- <button type="button" class="btn btn-success float-right"> -->
-                        <i class="fas fa-folder-plus"></i> &nbsp; Tambah User </button>
-
-                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Tambah User</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="../../index3.html" method="post">
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Nama User ...">
-                                        <div class="input-group-append">
-                                        <div class="input-group-text">
-                                            <span class="fas fa-user"></span>
-                                        </div>
-                                        </div>
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <input type="email" class="form-control" placeholder="Email ...">   
-                                        <div class="input-group-append">
-                                        <div class="input-group-text">
-                                            <span class="fas fa-envelope"></span>
-                                        </div>
-                                        </div>                                     
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <input type="password" class="form-control" placeholder="Password ...">   
-                                        <div class="input-group-append">
-                                        <div class="input-group-text">
-                                            <span class="fas fa-lock"></span>
-                                        </div>
-                                        </div>                                     
-                                    </div>
-                                    
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
+                        <button type="button" class="btn btn-success float-right" @click="modalBaru">
+                            <i class="fas fa-folder-plus"></i> &nbsp; Tambah User</button>
 
                         <br>
                         <br>
@@ -95,6 +48,72 @@
                 </div>
             </div>
         </div>
+        <!-- Modal -->
+                        <div class="modal fade"
+                        id="tambah"
+                        tabindex="-1"
+                        role="dialog"
+                        aria-labelledby="tambahLabel"
+                        aria-hidden="true"
+                        >
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="tambahLabel" v-show="!editmode">Tambah Data Baru</h5>
+                                <h5 class="modal-title" id="tambahLabel" v-show="editmode">Rubah Data Kategori</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form @submit.prevent="editmode ? updateData() : createData()">
+                                <div class="modal-body">
+                                <div class="form-group">
+                                    <input
+                                    v-model="form.name"
+                                    type="text"
+                                    name="name"
+                                    placeholder="Nama User"
+                                    class="form-control"
+                                    :class="{ 'is-invalid': form.errors.has('name') }"
+                                    />
+                                    <has-error :form="form" field="name"></has-error>
+                                </div>
+
+                                <div class="form-group">
+                                    <input
+                                    v-model="form.email"
+                                    type="text"
+                                    name="email"
+                                    placeholder="Email"
+                                    class="form-control"
+                                    :class="{ 'is-invalid': form.errors.has('email') }"
+                                    />
+                                    <has-error :form="form" field="email"></has-error>
+                                </div>
+
+                                <div class="form-group">
+                                    <input
+                                    v-model="form.password"
+                                    type="password"
+                                    name="password"
+                                    placeholder="Password"
+                                    class="form-control"
+                                    :class="{ 'is-invalid': form.errors.has('password') }"
+                                    />
+                                    <has-error :form="form" field="email"></has-error>
+                                </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Keluar</button>
+                                <button v-show="!editmode" type="submit" class="btn btn-primary">Tambah</button>
+                                <button v-show="editmode" type="submit" class="btn btn-primary">Rubah</button>
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+                        </div>
+                        <!--/Modal-->
     </div>
 </template>
 
@@ -114,8 +133,28 @@
         },
 
         methods: {                          //method untuk 
+            modalBaru() {
+                this.editmode = false;
+                this.form.reset();
+                $("#tambah").modal("show");
+            },
             loadData() {
                 axios.get("api/user").then(({data}) => (this.users = data));
+            },
+            createData() {
+            this.form
+                .post("api/user")
+                .then(() => {
+                this.$Progress.start();
+                Fire.$emit("refreshData");      //refresh database kedalam tabel
+                $("#tambah").modal("hide");
+                Toast.fire({                    //notifikasi 
+                    type: "success",
+                    title: "Data Berhasi Tersimpan"
+                });
+                this.$Progress.finish();
+                })
+                .catch();
             }
         },
             created() {                     //untuk menampilkan / memanggil data di method atas
