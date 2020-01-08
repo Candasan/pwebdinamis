@@ -64,7 +64,8 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $blog = Blog::findOrFail($id);
+        $blog->update($request->all());
     }
 
     /**
@@ -75,6 +76,7 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $blog = Blog::FindOrFail($id);
+        $blog->delete();
     }
 }

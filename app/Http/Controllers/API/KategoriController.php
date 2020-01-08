@@ -56,7 +56,8 @@ class KategoriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kategori = Kategori::findOrFail($id);
+        $kategori->update($request->all());
     }
 
     /**
@@ -67,6 +68,7 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kategori = Kategori::FindOrFail($id);
+        $kategori->delete();
     }
 }
